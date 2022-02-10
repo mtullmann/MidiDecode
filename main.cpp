@@ -30,7 +30,7 @@ void v_Hdr(MTHD_hdr hd, MTRK_hdr rk, DATA* data) {
 		for (int globalLength = 0; globalLength< datSize; globalLength++) {
 			printf("%03i_", globalLength + 1);
 			printf("%02x\n", data[globalLength].data & 0b11111111);
-			
+			bool we = 0;
 			if (ifItsEvent(data[globalLength].data)) {
 				printf("An Event has occourd: ");
 				//for (int i = 0; i != *ev_len+1;i++) {
@@ -40,10 +40,13 @@ void v_Hdr(MTHD_hdr hd, MTRK_hdr rk, DATA* data) {
 				printf("\n");
 			}
 			else {
-				printf("\n\t");
-				v_note(data[globalLength].data & 0b11111111);
-				printf(" , ");
-				v_instrument(data[globalLength].data & 0b11111111);
+				//printf("\n\t");
+				we = 0;
+				if (v_note(data[globalLength].data & 0b11111111)) {
+					printf(" , ");
+					we = 1;
+				}
+				if(v_instrument(data[globalLength].data & 0b11111111)||we==1)
 				printf("\n");
 			}
 		}

@@ -68,16 +68,23 @@ void _not(char inp, char* note, char* octNr) {
 	}
 	*octNr = (inp / 12) - 1;
 }
-void v_note(char inp) {
+bool v_note(char inp) {
 	char note[4];
 	char octNr = 0;
 	_not(inp, note, &octNr);
-	if (strcmp(note, "NaN"))
-	printf("Note: %s%i", note, octNr);
+	if (strcmp(note, "NaN")) {
+		printf("Note: %s%i", note, octNr);
+		return 1;
+	}
+	return 0;
 }
-void v_instrument(char c) {
-	if(strcmp(_inst(c),"NaN"))
-	printf("Instrument group: \"%s\"", _inst(c));
+bool v_instrument(char c) {
+	char* cx= _inst(c);
+	if (strcmp(cx, "NaN")) {
+		printf("Instrument group: \"%s\"", cx);
+		return 1;
+	}
+	return 0;
 }
 void conv_Bytes(int* out, char* in, int size, bool msb_flp = 0) {
 	*out = 0;
