@@ -83,9 +83,9 @@ void do_things(const char*fileName) {
 	free(generalData);
 }
 int main() {
-	do_things("alle_meine_entchen.mid");
+	do_things("Midis\\alle_meine_entchen.mid");
 	printf("\n\n");
-	do_things("_alle_meine_entchen.mid");
-	while (_getch() == 'c');
+	do_things("Midis\\_alle_meine_entchen.mid");
+	while (_getch() != 'c');
 	return 0;
 }
