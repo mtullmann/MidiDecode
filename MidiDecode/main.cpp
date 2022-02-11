@@ -76,6 +76,7 @@ void do_things(const char* fileName) {
 	fread(&wavHeader, headerSize[0], 1, f);
 	conv_Bytes(&tracks, wavHeader.tracks, 2);
 	for (int i = 0; tracks != i; i++) {
+		globalElem = i;
 		fread(&mtrk[i], headerSize[1], 1, f);
 		conv_Bytes(&tracksSize[i], mtrk[i].chunklength, 4);
 		generalData[i] = (DATA*)malloc(tracksSize[i] * sizeof(DATA)*5);
@@ -91,7 +92,11 @@ void do_things(const char* fileName) {
 	v_Hdr(wavHeader, mtrk, generalData);
 
 	fclose(f);
-	free(generalData);
+	/*for (int i = 0; i != 100; i++) {
+		if(generalData[i] != NULL)
+		free(generalData[i]);
+
+	}*/
 }
 int main() {
 	do_things("Midis\\alle_meine_entchen.mid");

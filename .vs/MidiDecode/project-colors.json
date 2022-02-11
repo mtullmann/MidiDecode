@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "66e1d838-2cbe-45f3-8094-a238d7db043e": {
+      "ProjectGuid": "66e1d838-2cbe-45f3-8094-a238d7db043e",
+      "DisplayName": "MidiDecode",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

@@ -99,6 +99,7 @@ void conv_Bytes(int* out, char* in, int size, bool msb_flp = 0) {
 static char event[100];
 int* ev_len = NULL;
 DATA* generalData[100];
+int globalElem = 0;
 int globalLength = 0;
 int identivyEvent() {
 	int len = *ev_len + 1;
