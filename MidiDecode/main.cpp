@@ -45,13 +45,15 @@ void v_Hdr(MTHD_hdr hd, MTRK_hdr *rk, DATA* data[100]) {
 				else {
 					//printf("\n\t");
 					we = 0;
-					if (v_note(data[lx][globalLength].data & 0b11111111)) {
+					/*if (v_note(data[lx][globalLength].data & 0b11111111)) {
 						printf(" , ");
 						we = 1;
 					}
 					if (v_instrument(data[lx][globalLength].data & 0b11111111) || we == 1)
 						printf("\n");
+					*/
 				}
+				_decodDat(NULL, NULL, NULL,NULL);
 			}
 		}
 	}
@@ -105,6 +107,6 @@ int main() {
 	//do_things("Midis\\Super Mario Land - Birabuto Kingdom.mid");
 
 	printf("FIN...\n\nPress \'s\' to Exit.\n\n");
-	while (_getch() != 'c');
+	//while (_getch() != 'c');
 	return 0;
 }
